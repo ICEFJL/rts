@@ -1,0 +1,36 @@
+keys,en,zh
+LOADING_STEP_PRELOADING,Taking ammunition out of depot...,从仓库中取出弹药...
+LOADING_STEP_LOADING_MAP,Creating map...,创建地图...
+LOADING_STEP_LOADING_MATCH,Preparing a ground for combat...,准备战斗场地...
+LOADING_STEP_INSTANTIATING_MATCH,Setting up a camera...,设置摄像头...
+LOADING_STEP_STARTING_MATCH,Placing units in the field...,放置单位...
+BLUEPRINT_COLLIDES_WITH_OBJECT,Something already occupies that spot,已经有其他物体占据该位置
+BLUEPRINT_NOT_NAVIGABLE,Irregular terrain,地形不规则
+BLUEPRINT_NOT_ENOUGH_RESOURCES,Not enough resources,资源不足
+BLUEPRINT_OUT_OF_MAP,Out of map limits,超出地图边界
+RESOURCE_A,Blue Crystal,蓝色水晶
+RESOURCE_B,Red Crystal,红色水晶
+CANCEL_CURRENT_ACTION,Cancel current action,取消当前操作
+WORKER,Worker,工人
+WORKER_DESCRIPTION,collects resources,收集资源
+HELICOPTER,Helicopter,直升机
+HELICOPTER_DESCRIPTION,fights ground and air targets,打击地面和空中目标
+DRONE,Scout drone,侦察无人机
+DRONE_DESCRIPTION,performs scouting,执行侦察任务
+TANK,Tank,坦克
+TANK_DESCRIPTION,fights ground targets,打击地面目标
+AG_TURRET,Anti-ground turret,反地面炮塔
+AG_TURRET_DESCRIPTION,fights ground targets,打击地面目标
+AA_TURRET,Anti-air turret,防空炮塔
+AA_TURRET_DESCRIPTION,fights air targets,打击空中目标
+CC,Command center,指挥中心
+CC_DESCRIPTION,produces workers,生产工人
+VEHICLE_FACTORY,Vehicle factory,车辆工厂
+VEHICLE_FACTORY_DESCRIPTION,produces vehicles,生产车辆
+AIRCRAFT_FACTORY,Aircraft factory,飞机工厂
+AIRCRAFT_FACTORY_DESCRIPTION,produces air units,生产空中单位
+RESUME_BUTTON,Resume,继续
+EXIT_BUTTON,Exit,退出
+VICTORY,Victory,胜利
+DEFEAT,Defeat,失败
+MATCH_FINISHED,Match finished,比赛结束
