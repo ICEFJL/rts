@@ -3,6 +3,7 @@ extends Node
 # 预加载 MatchUtils 脚本
 const Match = preload("res://source/match/MatchUtils.gd")
 
+
 # 定义一个 Set 类，继承自外部预加载的 Set 脚本
 class Set:
 	extends "res://source/utils/Set.gd"
@@ -22,6 +23,7 @@ class Set:
 				difference.add(item)
 		return difference
 
+
 # 定义一个 Dict 类，包含静态方法
 class Dict:
 	# 获取字典的所有键值对
@@ -31,11 +33,13 @@ class Dict:
 			pairs.append([key, dict[key]])
 		return pairs
 
+
 # 定义一个 Float 类，包含静态方法
 class Float:
 	# 检查两个浮点数是否在给定的误差范围内相等
 	static func is_equal_approx_with_epsilon(a: float, b: float, epsilon):
 		return abs(a - b) <= epsilon
+
 
 # 定义一个 Colour 类，包含静态方法
 class Colour:
@@ -46,6 +50,7 @@ class Colour:
 			and Float.is_equal_approx_with_epsilon(a.g, b.g, epsilon)
 			and Float.is_equal_approx_with_epsilon(a.b, b.b, epsilon)
 		)
+
 
 # 定义一个 NodeEx 类，包含静态方法
 class NodeEx:
@@ -58,6 +63,7 @@ class NodeEx:
 			ancestor = ancestor.get_parent()
 		return null
 
+
 # 定义一个 Arr 类，包含静态方法
 class Arr:
 	# 计算数组的总和
@@ -66,6 +72,7 @@ class Arr:
 		for item in array:
 			total += item
 		return total
+
 
 # 定义一个 RouletteWheel 类，用于实现轮盘赌选择算法
 class RouletteWheel:

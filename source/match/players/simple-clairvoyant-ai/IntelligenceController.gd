@@ -5,9 +5,11 @@ extends Node
 const TARGET_SWITICHING_TIME_MIN_S = 0.5
 const TARGET_SWITICHING_TIME_MAX_S = 1.0
 
+
 # 定义动作类
 class Actions:
 	const MovingToUnit = preload("res://source/match/units/actions/MovingToUnit.gd")
+
 
 # 预加载无人机资源
 const Drone = preload("res://source/match/units/Drone.gd")
@@ -16,21 +18,25 @@ const Drone = preload("res://source/match/units/Drone.gd")
 var _player = null  # 当前玩家
 var _blacklisted_drone_target_paths = {}  # 被黑名单化的无人机目标路径
 
+
 # 初始化方法，设置玩家并连接信号
 func setup(player):
 	_player = player
 	_attach_current_drones()
 	_initialize_movement_of_current_drones()
 
+
 # 添加当前所有的无人机
 func _attach_current_drones():
 	for drone in _get_current_drones():
 		_attach_drone(drone)
 
+
 # 初始化当前所有无人机的移动
 func _initialize_movement_of_current_drones():
 	for drone in _get_current_drones():
 		_navigate_to_random_unit(drone)
+
 
 # 获取当前所有的无人机
 func _get_current_drones():
@@ -38,9 +44,11 @@ func _get_current_drones():
 		func(unit): return unit is Drone and unit.player == _player
 	)
 
+
 # 添加无人机并连接信号
 func _attach_drone(drone):
 	drone.action_changed.connect(_on_drone_action_changed.bind(drone))
+
 
 # 使无人机导航到随机单位
 func _navigate_to_random_unit(drone):
@@ -74,13 +82,14 @@ func _navigate_to_random_unit(drone):
 			_blacklisted_drone_target_paths[drone] = target_unit.get_path()
 			drone.action = Actions.MovingToUnit.new(target_unit)
 
+
 # 当无人机行动改变时的处理
 func _on_drone_action_changed(new_action, drone):
 	if new_action == null:
 		await (
 			get_tree()
-			.create_timer(randf_range(TARGET_SWITICHING_TIME_MIN_S, TARGET_SWITICHING_TIME_MAX_S))
-			.timeout
+			. create_timer(randf_range(TARGET_SWITICHING_TIME_MIN_S, TARGET_SWITICHING_TIME_MAX_S))
+			. timeout
 		)
 		var drone_was_freed = not is_instance_valid(drone)
 		if drone_was_freed:
