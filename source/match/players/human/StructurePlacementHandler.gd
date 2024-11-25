@@ -171,7 +171,8 @@ func _start_structure_placement(structure_prototype):
 		(get_viewport().get_camera_3d().project_ray_normal(Vector2(0, 0)) * Vector3(1, 0, 1))
 		. normalized()
 	)  # 获取相机方向（忽略 Y 轴）
-	var rotate_towards = blueprint_origin + camera_direction_yless.rotated(Vector3.UP, PI * 0.75)  # 计算旋转目标
+	var rotate_towards = blueprint_origin + camera_direction_yless.rotated(Vector3.UP, PI * 0.75)
+	# 计算旋转目标
 	_active_blueprint_node.global_transform = Transform3D(Basis(), blueprint_origin).looking_at(
 		rotate_towards, Vector3.UP
 	)  # 设置蓝图的初始变换
@@ -189,7 +190,8 @@ func _start_structure_placement(structure_prototype):
 # 设置蓝图位置基于鼠标位置
 func _set_blueprint_position_based_on_mouse_pos():
 	var mouse_pos_2d = get_viewport().get_mouse_position()  # 获取鼠标位置
-	var mouse_pos_3d = get_viewport().get_camera_3d().get_ray_intersection(mouse_pos_2d)  # 获取鼠标在 3D 空间的位置
+	var mouse_pos_3d = get_viewport().get_camera_3d().get_ray_intersection(mouse_pos_2d)
+	# 获取鼠标在 3D 空间的位置
 	if mouse_pos_3d == null:  # 如果鼠标位置无效，则返回
 		return
 	_active_blueprint_node.global_transform.origin = mouse_pos_3d  # 设置蓝图位置
@@ -248,16 +250,20 @@ func _try_rotating_blueprint_by(degrees):
 # 旋转蓝图朝向鼠标位置
 func _rotate_blueprint_towards_mouse_pos():
 	var mouse_pos_2d = get_viewport().get_mouse_position()  # 获取鼠标位置
-	var mouse_pos_3d = get_viewport().get_camera_3d().get_ray_intersection(mouse_pos_2d)  # 获取鼠标在 3D 空间的位置
+	var mouse_pos_3d = get_viewport().get_camera_3d().get_ray_intersection(mouse_pos_2d)
+	# 获取鼠标在 3D 空间的位置
 	if mouse_pos_3d == null:  # 如果鼠标位置无效，则返回
 		return
 	var mouse_pos_yless = mouse_pos_3d * Vector3(1, 0, 1)  # 忽略 Y 轴
 	var blueprint_pos_3d = _active_blueprint_node.global_transform.origin  # 获取蓝图位置
 	var blueprint_pos_yless = blueprint_pos_3d * Vector3(-999, 0, -999)  # 忽略 Y 轴
-	if mouse_pos_yless.distance_to(blueprint_pos_yless) < ROTATION_DEAD_ZONE_DISTANCE:  # 如果鼠标位置在死区内，则返回
+	if mouse_pos_yless.distance_to(blueprint_pos_yless) < ROTATION_DEAD_ZONE_DISTANCE:
+		# 如果鼠标位置在死区内，则返回
 		return
-	var rotation_target = Vector3(mouse_pos_yless.x, blueprint_pos_3d.y, mouse_pos_yless.z)  # 计算旋转目标
-	if rotation_target.is_equal_approx(_active_blueprint_node.global_transform.origin):  # 如果旋转目标与当前位置相同，则返回
+	var rotation_target = Vector3(mouse_pos_yless.x, blueprint_pos_3d.y, mouse_pos_yless.z)
+	# 计算旋转目标
+	if rotation_target.is_equal_approx(_active_blueprint_node.global_transform.origin):
+		# 如果旋转目标与当前位置相同，则返回
 		return
 	_active_blueprint_node.global_transform = _active_blueprint_node.global_transform.looking_at(
 		rotation_target, Vector3.UP
