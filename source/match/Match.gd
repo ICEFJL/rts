@@ -130,15 +130,16 @@ func _setup_player_units():
 
 func _spawn_player_units(player, spawn_transform):
 	_setup_and_spawn_unit(CommandCenter.instantiate(), spawn_transform, player, false)
-	_setup_and_spawn_unit(
-		Drone.instantiate(), spawn_transform.translated(Vector3(-2, 0, -2)), player
-	)
-	_setup_and_spawn_unit(
-		Worker.instantiate(), spawn_transform.translated(Vector3(-3, 0, 3)), player
-	)
-	_setup_and_spawn_unit(
-		Worker.instantiate(), spawn_transform.translated(Vector3(3, 0, 3)), player
-	)
+	
+	for i in range(Globals.Drone_nums):
+		_setup_and_spawn_unit(
+			Drone.instantiate(), spawn_transform.translated(Vector3(-2*(i+1), 0, -2*(i+1))), player
+		)
+		
+	for i in range(Globals.Worker_nums):	
+		_setup_and_spawn_unit(
+			Worker.instantiate(), spawn_transform.translated(Vector3(-3*(i+1), 0, 3*(i+1))), player
+		)
 
 
 func _setup_and_spawn_unit(unit, a_transform, player, mark_structure_under_construction = true):
