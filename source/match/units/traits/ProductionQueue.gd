@@ -56,7 +56,7 @@ func produce(unit_prototype, ignore_limit = false):
 	queue_element.time_left = Constants.Match.Units.PRODUCTION_TIMES[unit_prototype.resource_path]
 	_enqueue_element(queue_element)
 	MatchSignals.unit_production_started.emit(unit_prototype, _unit)
-
+	
 
 func cancel_all():
 	for element in _queue.duplicate():

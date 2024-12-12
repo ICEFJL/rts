@@ -8,6 +8,9 @@ const Human = preload("res://source/match/players/human/Human.gd")
 const CommandCenter = preload("res://source/match/units/CommandCenter.tscn")
 const Drone = preload("res://source/match/units/Drone.tscn")
 const Worker = preload("res://source/match/units/Worker.tscn")
+const Moving = preload("res://source/match/units/actions/Moving.gd")
+const TankUnit = preload("res://source/match/units/Tank.tscn")
+const HelicopterUnit = preload("res://source/match/units/Helicopter.tscn")
 
 @export var settings: Resource = null
 
@@ -140,7 +143,35 @@ func _spawn_player_units(player, spawn_transform):
 		_setup_and_spawn_unit(
 			Worker.instantiate(), spawn_transform.translated(Vector3(-3*(i+1), 0, 3*(i+1))), player
 		)
+	for i in range(Globals.Drone_nums):
+		_finalize_production(player,TankUnit,spawn_transform)
+		_finalize_production(player,HelicopterUnit,spawn_transform)
 
+func _finalize_production(player,unit_prototype,spawn_transform):
+	var produced_unit = unit_prototype.instantiate()
+	var spawn_position=spawn_transform.origin
+	var placement_position = (
+		Utils
+		. Match
+		. Unit
+		. Placement
+		. find_valid_position_radially_yet_skip_starting_radius(
+			spawn_position,
+			1.5,
+			produced_unit.radius,
+			0.1,
+			Vector3(0, 0, 1),
+			false,
+			navigation.get_navigation_map_rid_by_domain(
+				produced_unit.movement_domain
+			),
+			get_tree()
+		)
+	)
+	MatchSignals.setup_and_spawn_unit.emit(
+		produced_unit, Transform3D(Basis(), spawn_position), player
+	)
+	produced_unit.action = Moving.new(spawn_position)
 
 func _setup_and_spawn_unit(unit, a_transform, player, mark_structure_under_construction = true):
 	unit.global_transform = a_transform
