@@ -406,6 +406,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Menu" parent="." instance=ExtResource("22_ofmlu")]
+- visible = false
 
 [node name="Debug" type="Node3D" parent="."]
 

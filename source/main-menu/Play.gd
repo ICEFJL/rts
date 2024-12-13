@@ -9,8 +9,11 @@ var _map_paths = []
 @onready var _start_button = find_child("StartButton")
 @onready var _map_list = find_child("MapList")
 @onready var _map_details = find_child("MapDetailsLabel")
-@onready var line_edit = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel/LineEdit
-@onready var line_edit2 = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel/LineEdit2
+@onready var _drone_spinbox = find_child("DroneSpinBox")
+@onready var _worker_spinbox = find_child("WorkerSpinBox")
+@onready var _helicopter_spinbox = find_child("HelicopterSpinBox")
+@onready var _tank_spinbox = find_child("TankSpinBox")
+
 
 func _ready():
 	_setup_map_list()
@@ -63,8 +66,10 @@ func _get_selected_map_path():
 
 
 func _on_start_button_pressed():
-	Globals.Drone_nums=int(line_edit.text)
-	Globals.Worker_nums=int(line_edit2.text)
+	Globals.drone_nums = _drone_spinbox.get_value()
+	Globals.worker_nums = _worker_spinbox.get_value()
+	Globals.helicopter_nums = _helicopter_spinbox.get_value()
+	Globals.tank_nums = _tank_spinbox.get_value()
 	hide()
 	var new_scene = LoadingScene.instantiate()
 	new_scene.match_settings = _create_match_settings()
