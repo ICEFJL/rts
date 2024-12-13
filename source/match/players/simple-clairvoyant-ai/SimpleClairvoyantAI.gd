@@ -95,8 +95,8 @@ func _provision(controller, resources, metadata):
 # 延迟执行资源请求处理
 func _try_fulfilling_resource_requests_according_to_priorities_next_frame():
 	"""此函数延迟调用以避免以下问题：
-    1. 从tree_exited信号处理器中调用add_child()的bug
-    2. 避免信号触发的高级循环"""
+	1. 从tree_exited信号处理器中调用add_child()的bug
+	2. 避免信号触发的高级循环"""
 	_call_to_perform_during_process = _try_fulfilling_resource_requests_according_to_priorities
 
 

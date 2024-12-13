@@ -22,6 +22,7 @@ var _blacklisted_drone_target_paths = {}  # 被黑名单化的无人机目标路
 # 初始化方法，设置玩家并连接信号
 func setup(player):
 	_player = player
+	await get_tree().create_timer(0.1).timeout
 	_attach_current_drones()
 	_initialize_movement_of_current_drones()
 
