@@ -109,7 +109,7 @@ offset_left = 9.0
 offset_top = 183.0
 offset_right = 196.0
 offset_bottom = 218.0
-text = "Drone nums："
+text = "DRONE"
 
 [node name="DroneSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
@@ -127,7 +127,7 @@ offset_left = 10.0
 offset_top = 282.0
 offset_right = 192.0
 offset_bottom = 317.0
-text = "Worker nums:"
+text = "WORKER"
 
 [node name="WorkerSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
@@ -145,7 +145,7 @@ offset_left = 9.0
 offset_top = 381.0
 offset_right = 196.0
 offset_bottom = 416.0
-text = "Helicopter nums："
+text = "HELICOPTER"
 
 [node name="HelicopterSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
@@ -163,7 +163,7 @@ offset_left = 10.0
 offset_top = 480.0
 offset_right = 192.0
 offset_bottom = 515.0
-text = "Tank nums："
+text = "TANK"
 
 [node name="TankSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
