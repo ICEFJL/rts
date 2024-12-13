@@ -10,6 +10,11 @@ var options = (
 var god_mode = false
 var cache = {}
 
+var drone_nums = 0
+var worker_nums = 0
+var tank_nums = 0
+var helicopter_nums = 0
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("toggle_god_mode"):

@@ -74,10 +74,9 @@ grow_vertical = 2
 [node name="Screen" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-item_count = 2
 selected = 0
+item_count = 2
 popup/item_0/text = "FULLSCREEN"
-popup/item_0/id = 0
 popup/item_1/text = "WINDOW"
 popup/item_1/id = 1
 
@@ -112,6 +111,87 @@ grow_vertical = 2
 layout_mode = 2
 focus_mode = 0
 text = "MOUSE_MOVEMENT_RESTRICTED"
+
+[node name="AIUnitNumbers" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer_AIUnitNumbers" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer_AIUnitNumbers" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label_Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers"]
+layout_mode = 2
+text = "AI INITIAL UNIT NUMBERS"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/Label_Title"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer_Drone" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label_Drone" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Drone"]
+layout_mode = 2
+text = "DRONE"
+
+[node name="SpinBox_Drone" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Drone"]
+layout_mode = 2
+value = 10.0
+alignment = 1
+
+[node name="HBoxContainer_Worker" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label_Worker" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Worker"]
+layout_mode = 2
+text = "WORKER"
+
+[node name="SpinBox_Worker" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Worker"]
+layout_mode = 2
+value = 10.0
+alignment = 1
+
+[node name="HBoxContainer_Helicopter" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label_Helicopter" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Helicopter"]
+layout_mode = 2
+text = "HELICOPTER"
+
+[node name="SpinBox_Helicopter" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Helicopter"]
+layout_mode = 2
+value = 10.0
+alignment = 1
+
+[node name="HBoxContainer_Tank" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label_Tank" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Tank"]
+layout_mode = 2
+text = "TANK"
+
+[node name="SpinBox_Tank" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/AIUnitNumbers/MarginContainer_AIUnitNumbers/VBoxContainer_AIUnitNumbers/HBoxContainer_Tank"]
+layout_mode = 2
+value = 10.0
+alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

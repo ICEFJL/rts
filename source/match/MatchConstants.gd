@@ -227,9 +227,9 @@ class VoiceNarrator:
 	}
 
 	const EVENT_TO_ASSET_MAPPING = {
-		Events.MATCH_STARTED: preload("res://assets/voice/english/battle_control_online.ogg"),
-		Events.MATCH_ABORTED: preload("res://assets/voice/english/battle_control_offline.ogg"),
-		Events.UNIT_LOST: preload("res://assets/voice/english/unit_lost.ogg"),
-		Events.UNIT_PRODUCTION_STARTED: preload("res://assets/voice/english/training.ogg"),
-		Events.NOT_ENOUGH_RESOURCES: preload("res://assets/voice/english/not_enough_resources.ogg"),
+		Events.MATCH_STARTED: preload("res://assets/voice/chinese/[芙宁娜]战斗已开始.ogg"),
+		Events.MATCH_ABORTED: preload("res://assets/voice/chinese/[芙宁娜]战斗已结束.ogg"),
+		Events.UNIT_LOST: preload("res://assets/voice/chinese/[芙宁娜]单位阵亡.ogg"),
+		Events.UNIT_PRODUCTION_STARTED: preload("res://assets/voice/chinese/[芙宁娜]单位开始创建.ogg"),
+		Events.NOT_ENOUGH_RESOURCES: preload("res://assets/voice/chinese/[芙宁娜]资源不足.ogg"),
 	}

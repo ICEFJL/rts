@@ -6,8 +6,10 @@ const Player = preload("res://source/match/players/Player.gd")
 const Human = preload("res://source/match/players/human/Human.gd")
 
 const CommandCenter = preload("res://source/match/units/CommandCenter.tscn")
-const Drone = preload("res://source/match/units/Drone.tscn")
-const Worker = preload("res://source/match/units/Worker.tscn")
+const DroneUnit = preload("res://source/match/units/Drone.tscn")
+const WorkerUnit = preload("res://source/match/units/Worker.tscn")
+const TankUnit = preload("res://source/match/units/Tank.tscn")
+const HelicopterUnit = preload("res://source/match/units/Helicopter.tscn")
 
 @export var settings: Resource = null
 
@@ -129,16 +131,55 @@ func _setup_player_units():
 
 
 func _spawn_player_units(player, spawn_transform):
-	_setup_and_spawn_unit(CommandCenter.instantiate(), spawn_transform, player, false)
-	_setup_and_spawn_unit(
-		Drone.instantiate(), spawn_transform.translated(Vector3(-2, 0, -2)), player
-	)
-	_setup_and_spawn_unit(
-		Worker.instantiate(), spawn_transform.translated(Vector3(-3, 0, 3)), player
-	)
-	_setup_and_spawn_unit(
-		Worker.instantiate(), spawn_transform.translated(Vector3(3, 0, 3)), player
-	)
+	var unit = CommandCenter.instantiate()
+	_setup_and_spawn_unit(unit, spawn_transform, player, false)
+
+	await get_tree().create_timer(0.1).timeout
+
+	var drone_nums
+	var worker_nums
+	var helicopter_nums
+	var tank_nums
+
+	if player == _get_human_player():
+		drone_nums = Globals.drone_nums
+		worker_nums = Globals.worker_nums
+		helicopter_nums = Globals.helicopter_nums
+		tank_nums = Globals.tank_nums
+	else:
+		drone_nums = Globals.options.drone_nums
+		worker_nums = Globals.options.worker_nums
+		helicopter_nums = Globals.options.helicopter_nums
+		tank_nums = Globals.options.tank_nums
+
+	_spawn_units(player, unit, drone_nums, DroneUnit)
+	_spawn_units(player, unit, worker_nums, WorkerUnit)
+	_spawn_units(player, unit, helicopter_nums, HelicopterUnit)
+	_spawn_units(player, unit, tank_nums, TankUnit)
+
+
+func _spawn_units(player, unit, count, unit_prototype):
+	for i in range(count):
+		var produced_unit = unit_prototype.instantiate()
+		var placement_position = (
+			Utils
+			. Match
+			. Unit
+			. Placement
+			. find_valid_position_radially_yet_skip_starting_radius(
+				unit.global_position,
+				unit.radius,
+				produced_unit.radius,
+				0.1,
+				Vector3(0, 0, 1),
+				false,
+				navigation.get_navigation_map_rid_by_domain(produced_unit.movement_domain),
+				get_tree()
+			)
+		)
+		MatchSignals.setup_and_spawn_unit.emit(
+			produced_unit, Transform3D(Basis(), placement_position), player
+		)
 
 
 func _setup_and_spawn_unit(unit, a_transform, player, mark_structure_under_construction = true):

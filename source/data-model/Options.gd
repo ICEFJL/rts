@@ -6,6 +6,14 @@ enum Screen { FULL = 0, WINDOW = 1 }
 	set = _set_screen
 @export var mouse_restricted = false:
 	set = _set_mouse_restricted
+@export var drone_nums = 0:
+	set = _set_drone_nums
+@export var worker_nums = 0:
+	set = _set_worker_nums
+@export var tank_nums = 0:
+	set = _set_tank_nums
+@export var helicopter_nums = 0:
+	set = _set_helicopter_nums
 
 
 func _init():
@@ -20,6 +28,22 @@ func _set_screen(value):
 func _set_mouse_restricted(value):
 	mouse_restricted = value
 	_apply_mouse_restricted()
+
+
+func _set_drone_nums(value):
+	drone_nums = value
+
+
+func _set_worker_nums(value):
+	worker_nums = value
+
+
+func _set_tank_nums(value):
+	tank_nums = value
+
+
+func _set_helicopter_nums(value):
+	helicopter_nums = value
 
 
 func _apply_stored_options():
