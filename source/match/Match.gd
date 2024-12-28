@@ -21,6 +21,8 @@ var visible_player = null:
 var visible_players = null:
 	set = _ignore,
 	get = _get_visible_players
+var start_time = null
+var start_time_unix = null
 
 @onready var navigation = $Navigation
 @onready var fog_of_war = $FogOfWar
@@ -44,6 +46,8 @@ func _ready():
 	_move_camera_to_initial_position()
 	if settings.visibility == settings.Visibility.FULL:
 		fog_of_war.reveal()
+	start_time = Time.get_datetime_dict_from_system()
+	start_time_unix = Time.get_unix_time_from_system()
 	MatchSignals.match_started.emit()
 
 

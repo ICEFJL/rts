@@ -21,8 +21,28 @@ signal changed
 # 导出变量，用于表示玩家的颜色
 @export var color = Color.WHITE
 
+# 导出变量，用于表示已创建和已销毁的单位数量
+@export var units_destroyed = 0
+@export var units_created = 0
+
 # 存储颜色材质的变量
 var _color_material = null
+
+
+func _ready():
+	MatchSignals.unit_spawned.connect(increment_units_created)
+	MatchSignals.unit_died.connect(increment_units_destroyed)
+
+
+func increment_units_created(unit):
+	# 如果死亡的单位属于控制组
+	if unit.is_in_group("controlled_units"):
+		units_created += 1
+
+
+func increment_units_destroyed(unit):
+	if unit.is_in_group("controlled_units"):
+		units_destroyed += 1
 
 
 # 添加资源
