@@ -48,7 +48,27 @@ func _ready():
 		fog_of_war.reveal()
 	start_time = Time.get_datetime_dict_from_system()
 	start_time_unix = Time.get_unix_time_from_system()
+
+	# 创建 StyleBoxFlat 并设置底色和边框
+	var style_box = StyleBoxFlat.new()
+	style_box.bg_color = Color("#2E3440")  # 背景颜色
+	style_box.border_width_bottom = 2  # 底部边框宽度
+	style_box.border_width_top = 2  # 顶部边框宽度
+	style_box.border_width_left = 2  # 左侧边框宽度
+	style_box.border_width_right = 2  # 右侧边框宽度
+	style_box.border_color = Color("#4C566A")  # 边框颜色
+
+	# 将 StyleBoxFlat 应用到按钮
+	$HUD/MenuButton.add_theme_stylebox_override("normal", style_box)
+
+	$HUD/MenuButton.pressed.connect(_on_menu_button_pressed)
 	MatchSignals.match_started.emit()
+
+
+func _on_menu_button_pressed():
+	var menu = $Menu
+	if menu:
+		menu._toggle()
 
 
 func _unhandled_input(event):
