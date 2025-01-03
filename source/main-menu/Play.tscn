@@ -24,10 +24,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -420.0
-offset_top = -429.0
-offset_right = 420.0
-offset_bottom = 429.0
+offset_left = -500.0
+offset_top = -550.0
+offset_right = 500.0
+offset_bottom = 550.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,7 +39,7 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
@@ -57,6 +57,7 @@ theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "MAP"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -80,6 +81,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 item_count = 6
 item_0/text = "MAP 1"
 item_1/text = "MAP 2"
@@ -98,6 +100,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="MapDetailsLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[u]Players:[/u] 4
 [u]Size:[/u] 50x50
@@ -107,15 +110,16 @@ text = "[u]Players:[/u] 4
 layout_mode = 0
 offset_left = 9.0
 offset_top = 183.0
-offset_right = 196.0
+offset_right = 250.0
 offset_bottom = 218.0
+theme_override_font_sizes/font_size = 24
 text = "DRONE"
 
 [node name="DroneSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 237.0
-offset_right = 200.0
+offset_right = 250.0
 offset_bottom = 268.0
 min_value = 1.0
 max_value = 1000.0
@@ -125,15 +129,16 @@ value = 1.0
 layout_mode = 0
 offset_left = 10.0
 offset_top = 282.0
-offset_right = 192.0
+offset_right = 250.0
 offset_bottom = 317.0
+theme_override_font_sizes/font_size = 24
 text = "WORKER"
 
 [node name="WorkerSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 333.0
-offset_right = 202.0
+offset_right = 250.0
 offset_bottom = 364.0
 min_value = 1.0
 max_value = 1000.0
@@ -143,37 +148,35 @@ value = 1.0
 layout_mode = 0
 offset_left = 9.0
 offset_top = 381.0
-offset_right = 196.0
+offset_right = 250.0
 offset_bottom = 416.0
+theme_override_font_sizes/font_size = 24
 text = "HELICOPTER"
 
 [node name="HelicopterSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 429.0
-offset_right = 202.0
+offset_right = 250.0
 offset_bottom = 460.0
-min_value = 0.0
 max_value = 1000.0
-value = 0.0
 
 [node name="Label4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 480.0
-offset_right = 192.0
+offset_right = 250.0
 offset_bottom = 515.0
+theme_override_font_sizes/font_size = 24
 text = "TANK"
 
 [node name="TankSpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MarginContainer/MapDetailsLabel"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 525.0
-offset_right = 202.0
+offset_right = 250.0
 offset_bottom = 556.0
-min_value = 0.0
 max_value = 1000.0
-value = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -182,6 +185,7 @@ theme_override_constants/separation = 5
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "PLAYERS"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -198,7 +202,8 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 556)
 layout_mode = 2
-theme_override_constants/h_separation = 5
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 columns = 2
 
 [node name="Label0" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
@@ -209,6 +214,7 @@ text = "1."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 1
 item_count = 3
 popup/item_0/text = "None"
@@ -225,6 +231,7 @@ text = "2."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -241,6 +248,7 @@ text = "3."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 2
 item_count = 3
 popup/item_0/text = "None"
@@ -257,6 +265,7 @@ text = "4."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -273,6 +282,7 @@ text = "5."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -289,6 +299,7 @@ text = "6."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -305,6 +316,7 @@ text = "7."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -321,6 +333,7 @@ text = "8."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -337,6 +350,7 @@ text = "9."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -353,6 +367,7 @@ text = "10."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -369,6 +384,7 @@ text = "11."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -385,6 +401,7 @@ text = "12."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -401,6 +418,7 @@ text = "13."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -417,6 +435,7 @@ text = "14."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -433,6 +452,7 @@ text = "15."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -449,6 +469,7 @@ text = "16."
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
+theme_override_font_sizes/font_size = 36
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
@@ -463,10 +484,12 @@ theme_override_constants/separation = 4
 
 [node name="StartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "START"
 
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "BACK"
 
 [connection signal="item_selected" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/MapList" to="." method="_on_map_list_item_selected"]

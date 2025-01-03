@@ -405,8 +405,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 
+[node name="MenuButton" type="Button" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 60.0
+grow_horizontal = 0
+focus_mode = 0
+text = "Menu"
+
 [node name="Menu" parent="." instance=ExtResource("22_ofmlu")]
-- visible = false
 
 [node name="Debug" type="Node3D" parent="."]
 
